@@ -1,0 +1,33 @@
+<div class="container-fluid" ng-controller="StoreController as store">
+    <div class="row">
+        <ul class="list-group">
+            <li class="col-xs-12" ng-repeat="product in store.products">
+                <h3>{{ product.name }}
+                <h2>{{ product.price | currency}}</h2>
+                </h3>
+                <img ng-src="{{product.images[0].full}}">
+                <!--<button ng-show="product.canPurchase" class="btn btn-success">Add to Cart</button>-->
+
+                <section ng-controller="PanelController as panel">
+                    <ul class="nav nav-pills">
+                        <li ng-class="{active: tab === 1}"><a ng-click="panel.selectTab(1)">Description</a></li>
+                        <li ng-class="{active: tab === 2}"><a ng-click="panel.selectTab(2)">Specifications</a></li>
+                        <li ng-class="{active: tab === 3}"><a ng-click="panel.selectTab(3)">Reviews</a></li>
+                    </ul>
+                    <div class="panel" ng-show="tab === 1">
+                        <h4>Description</h4>
+                        <p>{{product.description}}</p>
+                    </div><div class="panel" ng-show="tab === 2">
+                        <h4>Specifications</h4>
+                        <p>{{product.specification}}</p>
+                    </div><div class="panel" ng-show="tab === 3">
+                        <h4>Reviews</h4>
+                        <p>{{product.review}}</p>
+                    </div>
+                </section>
+            </li>
+        </ul>
+        <hr>
+    </div>
+</div>
+

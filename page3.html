@@ -1,0 +1,27 @@
+<h2>Class Mates</h2>
+<ul>
+    <li ng-repeat="student in classMates">{{student}}</li>
+</ul>
+
+<select ng-model="selectedClassmate" ng-options="x for x in classMates"></select>
+
+<h3>Products</h3>
+<label>Quantity:</label> <input type="text" ng-model="quantity">
+<label>Price:</label> <input type="text" ng-model="price">
+<p>Total in dollar(s): {{quantity * price | currency}}</p>
+<hr>
+<form action="" name="myForm">
+    <!--email validation-->
+    <label>Email:</label>
+    <input type="email" name="myEmail" ng-model="text" required>
+    <span ng-show="myForm.myEmail.$error.email">This is not a valid email.</span>
+
+    <h3>Status</h3>
+    <p>Valid? {{myForm.myEmail.$valid}}</p>
+    <p>Dirty? {{myForm.myEmail.$dirty}}</p>
+    <p>Touched? {{myForm.myEmail.$touched}}</p>
+</form>
+</form>
+
+<h2>{{myHeader}}</h2>
+<p>{{hex}}</p>
